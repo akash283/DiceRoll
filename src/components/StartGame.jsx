@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Button } from '../Button/Button'
+import {device} from './device'
 
 function StartGame({toggle}) {
   return (
@@ -23,12 +24,17 @@ const Container=styled.div`
   height: 97vh;
   margin: 0 auto;
   align-items: center;
-
+  @media ${device.tablet}{
+    flex-direction: column;
+    text-align: center;
+  }
   img{
     width: 70%;
     animation-name: roll;
     animation-duration: 1s;
     transition: all ease-in;
+    @media ${device.tablet}{width:50%;}
+    @media ${device.mobileS}{width:100%}
   }
 
   @keyframes roll{
@@ -43,6 +49,8 @@ const Container=styled.div`
       font-size: 96px;
       white-space: nowrap;
       color: #f31919;
+      @media ${device.tablet}{font-size:65px}
+      @media ${device.mobileS}{font-size:50px}
     }
   }
 `
